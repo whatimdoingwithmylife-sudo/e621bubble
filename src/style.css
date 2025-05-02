@@ -1,0 +1,87 @@
+/* General Layout & Pico Overrides */
+body {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+main.container {
+    max-width: 800px; /* Limit width slightly */
+}
+
+article {
+    padding-bottom: 1rem; /* Ensure spacing below buttons */
+}
+
+/* Notices */
+.notice-box {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid;
+    border-radius: var(--pico-border-radius);
+    background-color: var(--pico-card-sectioning-background-color);
+}
+.notice-box.warning { border-color: var(--pico-amber); }
+.notice-box.danger { border-color: var(--pico-red); }
+.notice-box strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: bold;
+}
+
+/* Input Form Grid */
+.input-grid {
+    grid-template-columns: 2fr 1fr; /* Adjust proportions slightly */
+    gap: var(--pico-form-element-spacing-horizontal);
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.action-button-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+/* Loader */
+#loader {
+    display: block;
+    margin: 1.5rem auto;
+    width: 60px; /* Slightly larger loader */
+}
+#loader[hidden] {
+    display: none;
+}
+
+/* Result Area */
+#resultArea {
+    margin-top: 1.5rem;
+}
+
+#gifCanvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto 1.5rem auto; /* Adjusted margins */
+    border-radius: var(--pico-border-radius);
+    background-image:
+        linear-gradient(45deg, #ccc 25%, transparent 25%),
+        linear-gradient(-45deg, #ccc 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ccc 75%),
+        linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    border: 1px dashed var(--pico-muted-border-color);
+}
+
+#imageInfo small {
+    color: var(--pico-muted-color);
+    display: block; /* Ensure it takes full width */
+}
+
+.result-buttons {
+    margin-top: 1.5rem;
+    gap: var(--pico-form-element-spacing-horizontal);
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+}

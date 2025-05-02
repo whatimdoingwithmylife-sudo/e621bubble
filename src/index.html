@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark" />
+    <title>e621 Mask Maker (Image/GIF)</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="lib/sonner.css"/>
+    <link rel="stylesheet" href="style.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+    <script src="lib/sonner.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <article>
+            <header class="text-center">
+                <h1>e621 Bubble speach</h1>
+            </header>
+
+            <div class="notice-box danger" role="alert">
+                <strong>Proxy Info:</strong> Uses a public CORS proxy (`corsproxy.io`)
+            </div>
+
+            <form>
+                <div class="grid input-grid">
+                        <label for="tagsInput">Tags
+                            <input type="text" id="tagsInput" placeholder="e.g., canine fluffy rating:s" required>
+                        </label>
+                        <label for="ratingSelect">Rating
+                            <select id="ratingSelect">
+                                <option value="s" selected>Safe</option>
+                                <option value="q">Questionable</option>
+                                <option value="e">Explicit</option>
+                            </select>
+                        </label>
+                </div>
+                <div class="text-center action-button-wrapper">
+                    <button type="button" id="fetchButton">generate GIF</button>
+                </div>
+            </form>
+
+            <progress id="loader" hidden></progress>
+
+            <section id="resultArea" class="text-center" hidden>
+                <h2>Your Masked GIF:</h2>
+                <canvas id="gifCanvas"></canvas>
+                <p id="imageInfo"><small>Image info shows up here.</small></p>
+                <div class="grid result-buttons">
+                    <button type="button" id="copyButton" hidden>Copy GIF</button>
+                    <button type="button" id="downloadButton" class="secondary" hidden>Download GIF</button>
+                </div>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
