@@ -31,12 +31,13 @@
                             <input type="text" id="tagsInput" placeholder="e.g., canine fluffy rating:s" required>
                         </label>
                         <label for="ratingSelect">Rating
-                            <select id="ratingSelect">
+                            <select id="ratingSelect" multiple>
                                 <option value="s" selected>Safe</option>
                                 <option value="q">Questionable</option>
                                 <option value="e">Explicit</option>
                             </select>
                         </label>
+
                 </div>
                 <div class="text-center action-button-wrapper">
                     <button type="button" id="fetchButton">generate GIF</button>

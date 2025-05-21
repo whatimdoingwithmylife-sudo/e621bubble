@@ -120,7 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
          }
 
          const tags = tagsInput.value.trim();
-         const rating = ratingSelect.value;
+         const selectedRatings = Array.from(ratingSelect.selectedOptions).map(option => option.value);
+         let rating = selectedRatings.join(',');
+
+         if (rating === '') {
+             showMessage('Please select at least one rating.', 'warning');
+             setLoading(false);
+             return;
+         }
          const searchTags = `order:random rating:${rating} ${tags}`.trim();
          const userAgent = getRandomUserAgent();
 
