@@ -1,15 +1,52 @@
-/* General Layout & Pico Overrides */
+/* Material Design 3 Color Palette (Example) */
+/* These are simplified examples. A full M3 theme would have many more colors. */
+:root {
+  --md-sys-color-primary: #6750A4; /* Example Primary */
+  --md-sys-color-on-primary: #FFFFFF; /* Example On Primary */
+  --md-sys-color-primary-container: #EADDFF; /* Example Primary Container */
+  --md-sys-color-on-primary-container: #21005D; /* Example On Primary Container */
+  --md-sys-color-surface: #FFFBFE; /* Example Surface */
+  --md-sys-color-on-surface: #1C1B1F; /* Example On Surface */
+  --md-sys-color-surface-container-low: #F7F2F6; /* Example Container Low */
+  --md-sys-color-surface-container: #F3EDF7; /* Example Container */
+  --md-sys-color-outline: #79747E; /* Example Outline */
+  --md-sys-color-error: #B3261E; /* Example Error */
+  --md-sys-color-on-error: #FFFFFF; /* Example On Error */
+  --md-sys-color-error-container: #F9DEDC; /* Example Error Container */
+  --md-sys-color-on-error-container: #410E0B; /* Example On Error Container */
+}
+
+/* Base Styles */
 body {
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
+  font-family: 'Roboto', sans-serif; /* Using Roboto, link required in HTML */
+  line-height: 1.6;
+  color: var(--md-sys-color-on-surface);
+  background-color: var(--md-sys-color-surface);
+  margin: 0;
+  padding: 16px; /* Adjust padding */
 }
 
 main.container {
-    max-width: 800px; /* Limit width slightly */
+  max-width: 800px; /* Limit width slightly */
+  margin: 0 auto; /* Center the container */
+  padding: 0 16px; /* Add horizontal padding */
+}
+
+h1, h2 {
+  color: var(--md-sys-color-on-surface);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+p {
+  margin-bottom: 12px;
 }
 
 article {
-    padding-bottom: 1rem; /* Ensure spacing below buttons */
+  background-color: var(--md-sys-color-surface-container-low); /* Neutral container color */
+  padding: 24px; /* Increased padding */
+  border-radius: 12px; /* Larger border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Increased elevation */
 }
 
 /* Notices */
@@ -29,32 +66,84 @@ article {
 }
 
 /* Input Form Grid */
-.input-grid {
-    grid-template-columns: 2fr 1fr; /* Adjust proportions slightly */
-    gap: var(--pico-form-element-spacing-horizontal);
-    margin-bottom: 1.5rem;
+.input-grid { /* Keep Pico grid for layout */
+    grid-template-columns: 2fr 1fr;
+    gap: 16px; /* Use a fixed gap */
+    margin-bottom: 24px; /* Increased margin */
+}
+
+/* Material Web 3 Component Overrides/Styling */
+/* These styles ensure the Material Web components look and behave correctly */
+
+/* md-text-field */
+md-text-field {
+  width: 100%;
+  margin-bottom: 16px; /* Add margin */
+}
+
+/* md-select */
+md-select {
+  width: 100%;
+  margin-bottom: 16px; /* Add margin */
+}
+
+/* md-filled-button, md-elevated-button, md-outlined-button */
+md-filled-button,
+md-elevated-button,
+md-outlined-button {
+    /* Basic button styling - M3 components handle most appearance */
+    margin: 0 4px; /* Add spacing between buttons */
+    --md-sys-color-primary: var(--md-sys-color-primary); /* Use the defined primary color */
+    --md-sys-color-on-primary: var(--md-sys-color-on-primary);
+    --md-sys-color-outline: var(--md-sys-color-outline);
+}
+
+md-filled-button {
+    --md-filled-button-container-color: var(--md-sys-color-primary);
+    --md-filled-button-label-text-color: var(--md-sys-color-on-primary);
+}
+
+md-elevated-button {
+    /* Elevated buttons have inherent elevation */
+    --md-elevated-button-container-color: var(--md-sys-color-surface-container-low);
+    --md-elevated-button-label-text-color: var(--md-sys-color-primary);
+    --md-elevated-button-container-elevation: 1; /* Example elevation */
+}
+
+md-outlined-button {
+    --md-outlined-button-outline-color: var(--md-sys-color-outline);
+    --md-outlined-button-label-text-color: var(--md-sys-color-primary);
+}
+
+/* Disabled state for all Material buttons */
+md-filled-button[disabled],
+md-elevated-button[disabled],
+md-outlined-button[disabled] {
+    opacity: 0.5; /* Standard disabled appearance */
+    cursor: not-allowed;
+}
+
+/* Specific button adjustments */
+.result-buttons md-outlined-button {
+    --md-outlined-button-outline-color: var(--md-sys-color-outline); /* Ensure outline color */
 }
 
 /* Buttons */
 .action-button-wrapper {
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px; /* Increased margin */
 }
 
 /* Loader */
 #loader {
     display: block;
-    margin: 1.5rem auto;
-    width: 60px; /* Slightly larger loader */
+    margin: 24px auto; /* Increased margin */
+    width: 60px;
 }
 #loader[hidden] {
     display: none;
 }
 
 /* Result Area */
-#resultArea {
-    margin-top: 1.5rem;
-}
-
 #gifCanvas {
     max-width: 100%;
     height: auto;
@@ -70,15 +159,16 @@ article {
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     border: 1px dashed var(--pico-muted-border-color);
 }
-
 #imageInfo small {
     color: var(--pico-muted-color);
-    display: block; /* Ensure it takes full width */
+    display: block;
+    text-align: center; /* Center the text */
+    margin-bottom: 16px; /* Add spacing below info */
 }
 
 .result-buttons {
-    margin-top: 1.5rem;
-    gap: var(--pico-form-element-spacing-horizontal);
+    margin-top: 24px; /* Increased margin */
+    gap: 8px; /* Smaller gap between result buttons */
 }
 
 /* Utility */
